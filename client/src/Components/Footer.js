@@ -1,47 +1,137 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { TbWorldBolt } from "react-icons/tb";
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer = () => {
+  const quickLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: 'About', path: '/about' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Blog', path: '/blog' }
+  ];
+
+  const legalLinks = [
+    { name: 'Ethical Standards', path: '/ethics' },
+    { name: 'Partner Agencies', path: '/partners' },
+    { name: 'Terms & Conditions', path: '/terms' },
+    { name: 'Privacy Policy', path: '/privacy' },
+    { name: 'Cookie Policy', path: '/cookies' }
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">Bristac Enterprise</h3>
-            <p className="text-gray-300 mb-4">
-              Building innovative solutions for modern businesses. We help companies
-              transform their operations through cutting-edge technology.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-300 hover:text-white transition duration-200">Home</Link></li>
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition duration-200">About</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition duration-200">Services</Link></li>
-              <li><Link to="/projects" className="text-gray-300 hover:text-white transition duration-200">Projects</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li>Email: info@bristac-enterprise.com</li>
-              <li>Phone: +1 (555) 123-4567</li>
-              <li><Link to="/contact" className="text-gray-300 hover:text-white transition duration-200">Contact Us</Link></li>
-            </ul>
-          </div>
+    <footer className="relative text-white lg:min-h-[500px] min-h-[500px]">
+      <div className="h-full">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 z-0 w-full h-full bg-black overflow-hidden">
+          <div 
+            className="absolute -inset-[250%] left-[-200%] right-[-200%] -rotate-[10deg]" 
+            style={{ background: 'radial-gradient(ellipse at center, #ea580cdd 0%, #000 18%, #000 100%)' }}
+          />
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-300">
-            © 2024 Bristac Enterprise. All rights reserved.
-          </p>
+        <div className="h-full flex flex-col items-stretch relative">
+          {/* Main Content */}
+          <div className="grow p-16 max-lg:pt-16 max-lg:p-0 flex flex-col lg:grid grid-cols-6 lg:gap-8 h-full items-center relative">
+            
+            {/* Background SVG Pattern */}
+            <div className="absolute inset-0 w-full h-full max-lg:hidden">
+              <div className="opacity-10 w-full h-full">
+                <svg 
+                  className="w-full h-full [&_path]:!fill-none [&_path]:stroke-white"
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 1768 493.499"
+                >
+                  <g transform="translate(17926 1825)" clipPath="url(#a)">
+                    <g>
+                      <path d="M-16456.739-1908.521s199.619 337.383 0 658.641" strokeWidth="1"/>
+                      <path d="M-16786.002-1908.521s164.842 322.627 0 658.428" strokeWidth="1"/>
+                      <path d="M-17042.002-1908.521v677.592" strokeWidth="1"/>
+                      <path d="M-17298.002-1908.521s-164.838 322.627 0 658.428" strokeWidth="1"/>
+                      <path d="M-17627.264-1908.521s-199.619 337.383 0 658.641" strokeWidth="1"/>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            {/* Logo and Social Icons - Left Column */}
+            <div className="relative flex flex-col gap-y-6 justify-center items-center w-max max-lg:py-12 max-lg:w-full">
+              <a href="/" aria-label="Home" className="max-w-[230px] flex items-center gap-3">
+                <TbWorldBolt className="w-16 h-16 text-white" />
+                <div className="flex flex-col leading-none">
+                  <span 
+                    className="text-xs font-light tracking-widest uppercase text-white/70"
+                    style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+                  >
+                    BRISTAC
+                  </span>
+                  <span 
+                    className="text-3xl font-light tracking-wide lowercase text-white"
+                    style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+                  >
+                    enterprises
+                  </span>
+                </div>
+              </a>
+
+              {/* Social Icons */}
+              <div className="flex justify-center gap-4">
+                <a href="https://facebook.com" aria-label="Link to Facebook" className="w-5 h-5 hover:opacity-70 transition-opacity">
+                  <Facebook className="w-full h-full" />
+                </a>
+                <a href="https://instagram.com" aria-label="Link to Instagram" className="w-5 h-5 hover:opacity-70 transition-opacity">
+                  <Instagram className="w-full h-full" />
+                </a>
+                <a href="https://linkedin.com" aria-label="Link to LinkedIn" className="w-5 h-5 hover:opacity-70 transition-opacity">
+                  <Linkedin className="w-full h-full" />
+                </a>
+                <a href="https://twitter.com" aria-label="Link to Twitter" className="w-5 h-5 hover:opacity-70 transition-opacity">
+                  <Twitter className="w-full h-full" />
+                </a>
+              </div>
+            </div>
+
+            {/* Links Section - Right Columns */}
+            <div className="relative col-start-4 col-span-2 max-lg:py-12 max-lg:border-t border-white/10 max-lg:w-full">
+              <ul className="lg:columns-2 max-lg:text-center">
+                {quickLinks.map((link, index) => (
+                  <li key={index} className="py-1">
+                    <a href={link.path} className="hover:opacity-70 transition-opacity">
+                      <span className="text-base font-light first-letter:capitalize inline-block">
+                        {link.name}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+                {legalLinks.map((link, index) => (
+                  <li key={index} className="py-1">
+                    <a href={link.path} className="hover:opacity-70 transition-opacity">
+                      <span className="text-base font-light first-letter:capitalize inline-block">
+                        {link.name}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Copyright Section */}
+          <div className="pt-8 xl:pt-4 pb-8 flex max-lg:flex-col max-lg:text-center gap-4 justify-between border-t border-white/10 font-light text-white/60 text-sm px-16">
+            <div>Copyright © 2024 Bristac Enterprise. All rights reserved</div>
+            <div>
+              Email: <a href="mailto:info@bristac-enterprise.com" className="hover:text-white transition-colors">info@bristac-enterprise.com</a>
+            </div>
+            <div>
+              Phone: <a href="tel:0724645415" className="hover:text-white transition-colors">+1 (555) 123-4567</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
