@@ -16,8 +16,13 @@ const WorkedForMarquee = () => {
     "Kenya Airways"
   ];
 
-  // Icon URL - you can replace this with your own icon
-  const iconUrl = "https://chemexpools.com/wp-content/uploads/2024/03/marquee-icon.svg";
+  // Different outlined icons for variety
+  const icons = [
+    "https://chemexpools.com/wp-content/uploads/2024/03/marquee-icon.svg",
+    "https://cdn-icons-png.flaticon.com/512/5290/5290058.png", // checkmark outline
+    "https://cdn-icons-png.flaticon.com/512/1828/1828884.png", // star outline
+    "https://cdn-icons-png.flaticon.com/512/2767/2767146.png", // badge outline
+  ];
 
   return (
     <div className="e-con-full e-flex e-con e-parent">
@@ -28,7 +33,7 @@ const WorkedForMarquee = () => {
               <div className="marquee-group">
                 {companies.map((company, index) => (
                   <div key={`group1-${index}`} className={`text ${index % 2 === 0 ? 'style2' : ''}`}>
-                    <img decoding="async" src={iconUrl} alt="marquee icon" />
+                    <img decoding="async" src={icons[index % icons.length]} alt="marquee icon" />
                     {company}
                   </div>
                 ))}
@@ -36,7 +41,7 @@ const WorkedForMarquee = () => {
               <div aria-hidden="true" className="marquee-group">
                 {companies.map((company, index) => (
                   <div key={`group2-${index}`} className={`text ${index % 2 === 0 ? 'style2' : ''}`}>
-                    <img decoding="async" src={iconUrl} alt="marquee icon" />
+                    <img decoding="async" src={icons[index % icons.length]} alt="marquee icon" />
                     {company}
                   </div>
                 ))}
@@ -48,7 +53,7 @@ const WorkedForMarquee = () => {
 
       <style jsx>{`
         .marquee-section {
-          background-color: #0066cc;
+          background: linear-gradient(to right, #1a1a1a, #2d2d2d, #1a1a1a);
           height: 152.1px;
           display: flex;
           align-items: center;
@@ -70,22 +75,25 @@ const WorkedForMarquee = () => {
           white-space: nowrap;
         }
 
-        .text {
+        .marquee .marquee-group .text {
           display: flex;
           align-items: center;
-          color: white;
-          font-size: 1.25rem;
-          font-weight: 600;
+          font-family: 'Grayfel', var(--title-font);
+          font-weight: 700;
+          font-size: 30px;
+          line-height: 40px;
           text-transform: uppercase;
+          color: #ffffff;
           padding: 0 3rem;
           letter-spacing: 0.05em;
         }
 
         .text img {
-          width: 24px;
-          height: 24px;
+          width: 30px;
+          height: 30px;
           margin-right: 1rem;
           flex-shrink: 0;
+          filter: brightness(0) invert(1);
         }
 
         .text.style2 {
