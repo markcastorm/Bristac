@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Introduction from './components/Introduction'
 import WorkedForMarquee from './components/WorkedForMarquee'
 import SolutionsSection from './components/SolutionsSection'
+import Values from './components/values'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       {/* <WorkedForMarquee/> */}
       <Introduction/>
       <SolutionsSection/>
+      <Values/>
       <Footer/>
     </div>
   )

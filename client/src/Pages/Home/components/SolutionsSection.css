@@ -1,0 +1,307 @@
+/* Custom animations and styles for Solutions Section */
+
+:root {
+  --accent-color: #DC2626; /* red-600 */
+  --bg-grey: #F9FAFB; /* gray-50 */
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Smooth scrolling animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Tab navigation enhancements */
+.tab-underline {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: all 0.5s var(--transition-smooth);
+}
+
+/* Card hover effects */
+.solution-card {
+  transition: all 0.7s var(--transition-smooth);
+  will-change: transform, opacity;
+}
+
+.solution-card:hover:not(.active) {
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+.solution-card.active {
+  z-index: 50;
+}
+
+/* Image zoom effect on active slide */
+.solution-card.active .solution-image {
+  transform: scale(1.1);
+  transition: transform 1.2s var(--transition-smooth);
+}
+
+.solution-card:not(.active) .solution-image {
+  transform: scale(1);
+  transition: transform 0.8s var(--transition-smooth);
+}
+
+/* Content fade animations */
+.solution-content-fade {
+  transition: all 0.7s var(--transition-smooth);
+  transition-delay: 0.1s;
+}
+
+.solution-card:not(.active) .solution-content-fade {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.solution-card.active .solution-content-fade {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Bottom bar slide effect */
+.solution-bottom-bar {
+  transition: transform 1s var(--transition-smooth);
+  transform-origin: bottom;
+}
+
+.solution-card.active .solution-bottom-bar {
+  transform: scaleY(0);
+}
+
+.solution-card:not(.active) .solution-bottom-bar {
+  transform: scaleY(1);
+}
+
+/* Navigation arrows */
+.nav-arrow {
+  transition: all 0.3s var(--transition-smooth);
+  backdrop-filter: blur(10px);
+}
+
+.nav-arrow:hover:not(:disabled) {
+  transform: scale(1.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.nav-arrow:active:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Slide indicators */
+.slide-indicator {
+  transition: all 0.3s var(--transition-smooth);
+  cursor: pointer;
+}
+
+.slide-indicator.active {
+  width: 2rem;
+  background: var(--accent-color);
+}
+
+.slide-indicator:not(.active) {
+  width: 0.5rem;
+  background: #9CA3AF; /* gray-400 */
+}
+
+.slide-indicator:not(.active):hover {
+  background: #4B5563; /* gray-600 */
+  transform: scale(1.2);
+}
+
+/* Button hover effect */
+.view-all-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.view-all-button:hover {
+  filter: brightness(0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+}
+
+.view-all-button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(220, 38, 38, 0.3);
+}
+
+/* Arrow icon animation */
+.arrow-icon-container {
+  position: relative;
+  overflow: hidden;
+  width: 1rem;
+  height: 1rem;
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.view-all-button:hover .arrow-icon.primary {
+  transform: translate(100%, -100%);
+}
+
+.view-all-button:hover .arrow-icon.secondary {
+  transform: translate(0, 0);
+}
+
+.arrow-icon.secondary {
+  position: absolute;
+  inset: 0;
+  transform: translate(-100%, 100%);
+}
+
+/* Tab badge animation */
+.tab-badge {
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.tab-button:hover .tab-badge {
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .solution-card {
+    min-width: 80vw !important;
+    width: 80vw !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .solution-card {
+    min-width: 90vw !important;
+    width: 90vw !important;
+  }
+  
+  .nav-arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .tab-button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Accessibility improvements */
+.tab-button:focus-visible,
+.nav-arrow:focus-visible,
+.slide-indicator:focus-visible,
+.view-all-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+/* Loading state (optional) */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton-loading {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 1000px 100%;
+}
+
+/* Prevent text selection during transitions */
+.solution-card.transitioning {
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Typography enhancements */
+.solution-title {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+}
+
+.solution-location {
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Tag badge styling */
+.solution-tag {
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Performance optimization */
+.solution-card,
+.solution-image,
+.solution-content-fade {
+  will-change: transform, opacity;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
