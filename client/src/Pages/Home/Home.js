@@ -6,6 +6,7 @@ import Introduction from './components/Introduction'
 import WorkedForMarquee from './components/WorkedForMarquee'
 import SolutionsSection from './components/SolutionsSection'
 import Values from './components/values'
+import Projects from './components/Projects'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Introduction/>
       <SolutionsSection/>
       <Values/>
+      <Projects/>
       <Footer/>
     </div>
   )
