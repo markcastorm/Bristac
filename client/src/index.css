@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap');
+
+/* Custom font override to match the aesthetic closer if system fonts aren't enough */
+.font-serif-custom {
+  font-family: 'Playfair Display', serif;
+}
+.font-sans-custom {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Subtle reveal animation for text */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

@@ -7,6 +7,7 @@ import WorkedForMarquee from './components/WorkedForMarquee'
 import SolutionsSection from './components/SolutionsSection'
 import Values from './components/values'
 import Projects from './components/Projects'
+import ContactForm from './components/contactform'
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <SolutionsSection/>
       <Values/>
       <Projects/>
+      <ContactForm/>
       <Footer/>
     </div>
   )
